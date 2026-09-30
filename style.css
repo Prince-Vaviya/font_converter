@@ -1,0 +1,305 @@
+/* ==========================================================================
+   Gujarati to Ghanshyam Font Converter Styles
+   Ultra-Clean, High-Focus Workspace with Title Bar
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #13181f;
+    --bg-tertiary: #1c232d;
+    --bg-card: #13181f;
+    
+    --border-color: rgba(240, 246, 252, 0.08);
+    --border-focus: #f97316;
+    
+    --accent-orange: #f97316;
+    --accent-orange-hover: #ea580c;
+    --accent-glow: rgba(249, 115, 22, 0.25);
+    
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+    
+    --font-ui: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-gujarati: 'Noto Sans Gujarati', 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-ui);
+    background-color: var(--bg-primary);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    overflow-x: hidden;
+}
+
+/* App Container */
+.app-container {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header Title Bar */
+.app-title-bar {
+    text-align: center;
+    padding: 8px 16px 4px 16px;
+}
+
+.app-title-bar h1 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #ffffff 0%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.app-title-bar p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Main Split View */
+.converter-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+@media (max-width: 950px) {
+    .converter-workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Converter Panel Cards */
+.panel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    min-height: 540px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-card:focus-within {
+    border-color: rgba(249, 115, 22, 0.35);
+}
+
+/* Panel Header */
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(28, 35, 45, 0.4);
+    border-bottom: 1px solid var(--border-color);
+    gap: 12px;
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.panel-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Editor Area */
+.editor-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    padding: 24px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    line-height: 1.65;
+    resize: none;
+    font-family: var(--font-gujarati);
+}
+
+.custom-textarea::placeholder {
+    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+}
+
+/* Output ASCII Textarea */
+.custom-textarea.output-ascii {
+    font-family: var(--font-mono), monospace;
+    font-size: 1.25rem;
+    color: #38bdf8;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.custom-textarea.output-ascii::placeholder {
+    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+}
+
+/* Panel Footer */
+.panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(11, 15, 20, 0.6);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stats-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: var(--font-ui);
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #252e3b;
+    border-color: rgba(240, 246, 252, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-outline {
+    background: rgba(28, 35, 45, 0.5);
+    border-color: var(--border-color);
+}
+
+.btn-outline:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+}
+
+/* CorelDRAW Copy Button */
+.btn-coreldraw {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: #10b981;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-coreldraw:hover {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+    border-color: #34d399;
+}
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md), 0 0 20px var(--accent-glow);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: auto;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    font-size: 18px;
+}

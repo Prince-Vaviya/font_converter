@@ -1,0 +1,207 @@
+/* Container for Textarea and Controls */
+#txt {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+    overflow: hidden; /* Keeps the border-radius neat */
+}
+
+#txt h3 {
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 12px 16px;
+    text-shadow: none;
+}
+
+#txt textarea {
+    display: block; /* This completely removes the descender gap */
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 16pt;
+    font-family: 'Noto Sans Gujarati', 'Noto Sans Devanagari', 'Mukta Vaani', Shruti, Arial;
+    padding: 16px;
+    color: #1f2937;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+/* Subtle focus ring inside the textarea */
+#txt textarea:focus {
+    box-shadow: inset 0 -2px 0 0 orangered;
+}
+
+/* Modern Controls using Flexbox */
+#controls {
+    background: #f9fafb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+.controls-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls-left a {
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.controls-left a:hover {
+    color: orangered;
+}
+
+.controls-left .icon-btn img {
+    height: 18px;
+    vertical-align: middle;
+}
+
+.sp-toggle {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #4b5563;
+}
+
+.controls-right label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+/* Special Keys (Ctrl+Alt) Container */
+#spkeys {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Virtual Keyboard Positioning */
+#vkb {
+    position: fixed;
+    bottom: 24px; /* Keeps it floating slightly off the bottom edge */
+    width: auto; /* Prevents it from stretching across the screen */
+    z-index: 999;
+    /* By NOT setting a 'left' or 'transform' property, it naturally aligns 
+       inside the #content column, avoiding the sidebar entirely! */
+}
+
+#vkbnrml, #vkbshft {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 12px 12px 12px; /* Tighter padding around the edges */
+    margin: 0;
+    width: auto; /* Shrinks container to fit the smaller keys */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; 
+}
+
+/* Adjusted for smaller SVG */
+.close-btn {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Compact Modern Buttons */
+#spkeys input[type='button'], 
+#vkbnrml input[type='button'], 
+#vkbshft input[type='button'] {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #1f2937;
+		font-family: 'Noto Sans Gujarati', 'Noto Sans Devanagari';
+    font-size: 16px; /* Smaller font */
+    padding: 4px 6px; /* Tighter internal padding */
+    margin: 2px 1px; /* Tighter space between keys */
+    min-width: 36px; /* Back to original legacy size */
+    min-height: 32px; /* Back to original legacy size */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+#spkeys input[type='button']:hover, 
+#vkbnrml input[type='button']:hover, 
+#vkbshft input[type='button']:hover {
+    background-color: #fef1ed; 
+    color: orangered;
+    border-color: orangered;
+    box-shadow: 0 2px 4px rgba(255, 69, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+#spkeys input[type='button']:active, 
+#vkbnrml input[type='button']:active, 
+#vkbshft input[type='button']:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* SVG Icon Styling */
+.icon-btn svg, .close-btn svg {
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.icon-btn {
+    color: #4b5563;
+}
+
+.icon-btn:hover {
+    color: orangered;
+}
+
+.close-btn {
+    color: #6b7280;
+}
+
+.close-btn:hover {
+    color: orangered;
+}

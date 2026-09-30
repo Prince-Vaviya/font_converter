@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ગુજરાતી ➔ Ghanshyam Font Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Nice Clean Title on Top -->
+        <header class="app-title-bar">
+            <h1>ગુજરાતી ➔ Ghanshyam Converter</h1>
+            <p>Convert Gujarati Unicode to Ghanshyam Legacy Font for CorelDRAW, PageMaker & Design</p>
+        </header>
+
+        <!-- Main Workspace: Split Panels -->
+        <main class="converter-workspace">
+            <!-- Left Panel: Gujarati Unicode Input -->
+            <section class="panel-card" id="inputPanel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>📝 Gujarati (Unicode) Input</span>
+                    </div>
+                    <div class="panel-controls">
+                        <button class="btn btn-outline" id="btnClear" title="Clear Text">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <textarea 
+                        id="unicodeInput" 
+                        class="custom-textarea" 
+                        placeholder="અહીં ગુજરાતી યુનિકોડ લખાણ ટાઇપ કરો અથવા પેસ્ટ કરો..."
+                        spellcheck="false"
+                        autofocus
+                    ></textarea>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="stats-group">
+                        <span id="inputCharCount">0 characters</span>
+                        <span>•</span>
+                        <span id="inputWordCount">0 words</span>
+                    </div>
+                    <div class="footer-actions">
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Real-time Conversion</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Ghanshyam ASCII Output -->
+            <section class="panel-card" id="outputPanel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>✨ Ghanshyam Output (ASCII)</span>
+                    </div>
+                    <div class="panel-controls">
+                        <button class="btn btn-coreldraw" id="btnCopyCorel" title="Copy ASCII text for CorelDRAW">
+                            📋 Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <textarea 
+                        id="outputDisplay" 
+                        class="custom-textarea output-ascii" 
+                        placeholder="Converted Ghanshyam ASCII will appear here..."
+                        readonly
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="stats-group">
+                        <span id="outputCharCount">0 characters</span>
+                    </div>
+                    <div class="footer-actions">
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Ready for CorelDRAW</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="conv-uni-to-hari.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -9,13 +9,13 @@
 <body>
 
     <div class="app-container">
-        <!-- Nice Clean Title on Top -->
+        <!-- Title Header -->
         <header class="app-title-bar">
             <h1>ગુજરાતી ➔ Ghanshyam Converter</h1>
             <p>Convert Gujarati Unicode to Ghanshyam Legacy Font for CorelDRAW, PageMaker & Design</p>
         </header>
 
-        <!-- Main Workspace: Split Panels -->
+        <!-- Main Workspace: Symmetrical Split Panels -->
         <main class="converter-workspace">
             <!-- Left Panel: Gujarati Unicode Input -->
             <section class="panel-card" id="inputPanel">
@@ -52,11 +52,11 @@
                 </div>
             </section>
 
-            <!-- Right Panel: Ghanshyam ASCII Output -->
+            <!-- Right Panel: Ghanshyam Font Preview -->
             <section class="panel-card" id="outputPanel">
                 <div class="panel-header">
                     <div class="panel-title">
-                        <span>✨ Ghanshyam Output (ASCII)</span>
+                        <span>✨ Ghanshyam Font Output</span>
                     </div>
                     <div class="panel-controls">
                         <button class="btn btn-coreldraw" id="btnCopyCorel" title="Copy ASCII text for CorelDRAW">
@@ -67,9 +67,9 @@
 
                 <div class="editor-container">
                     <textarea 
-                        id="outputDisplay" 
-                        class="custom-textarea output-ascii" 
-                        placeholder="Converted Ghanshyam ASCII will appear here..."
+                        id="fontPreview" 
+                        class="custom-textarea font-ghanshyam" 
+                        placeholder="પરિણામ અહીં ઘનશ્યામ ફોન્ટમાં દેખાશે..."
                         readonly
                         spellcheck="false"
                     ></textarea>
